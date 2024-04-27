@@ -1,0 +1,30 @@
+html {
+    text-align: center;
+    background-image: url('background.png');
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    width: 90px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+button:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#view {
+    width: 100px;
+    height: 60px;
+}
+
+input {
+    width: 200px;
+    height: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
