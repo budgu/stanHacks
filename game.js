@@ -42,12 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function startNpcCar() {
         npcInterval = setInterval(() => {
             const currentLeft = parseInt(npcCar.style.left, 10);
-            npcCar.style.left = `${currentLeft + 10}px`; // NPC car speed
+            npcCar.style.left = `${currentLeft + 30}px`; // NPC car speed
             if (currentLeft >= trackLength - 20) { // Adjusted to consider the width of the car for a better visual cue
                 clearInterval(npcInterval);
-                setTimeout(() => {
-                    alert('NPC wins!');
-                }, 500); // 0.5 second delay before showing the message
+
             }
         }, 1000); // Adjust timing to control speed
     }
@@ -95,6 +93,3 @@ document.addEventListener('DOMContentLoaded', function() {
         return array;
     }
 });
-
-
-

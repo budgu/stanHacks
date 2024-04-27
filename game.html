@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Flashcard Game</title>
-    <style>.card {
-        cursor: pointer;
-        padding: 10px;
-        margin: 5px;
-        border: 1px solid black;
-        display: inline-block;
-    }
-    
-    .selected {
-        background-color: yellow;
-    }
-    
-    .matched {
-        background-color: green;
-        cursor: default;
-    }</style>
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
-    <h1>Flashcard Matching Game</h1>
+    <nav>
+        <img src="beatTheRacer.png" alt="Beat the Racer logo" style="height: 130px; length: 130px;">
+        <br>
+        <button onclick="location.href='index.html'">Home</button>
+        <br>
+        <br>
+    </nav>
     <select id="setSelector">
         <option value="">Select a Flashcard Set</option>
     </select>
     <div id="gameBoard"></div>
     
     <!-- Race track and cars -->
-    <div id="raceTrack" style="position: relative; width: 100%; height: 100px; background-color: #ddd;">
-        <div id="userCar" style="position: absolute; width: 20px; height: 20px; background-color: blue; left: 0;"></div>
-        <div id="npcCar" style="position: absolute; width: 20px; height: 20px; border-radius: 50%; background-color: red; left: 0;"></div>
+    <div id="raceTrack">
+        <img src="userCar.gif" id="userCar" style="position: absolute; width: 80px; height: 80px; left: 0;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <img src="npcCar.gif" id="npcCar" style="position: absolute; width: 80px; height: 80px; left: 0;">
     </div>
 
     <script src="game.js"></script>
