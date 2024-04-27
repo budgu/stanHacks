@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const gameBoard = document.getElementById('gameBoard');
     const userCar = document.getElementById('userCar');
     const npcCar = document.getElementById('npcCar');
-    const trackLength = 800; // Adjust this based on your race track size
+    const trackLength = 1425; // Adjust this based on your race track size
     let npcInterval;
 
     // Load flashcard sets from localStorage
@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function startNpcCar() {
         npcInterval = setInterval(() => {
             const currentLeft = parseInt(npcCar.style.left, 10);
-            npcCar.style.left = `${currentLeft + 30}px`; // NPC car speed
-            if (currentLeft >= trackLength - 20) { // Adjusted to consider the width of the car for a better visual cue
+            npcCar.style.left = `${currentLeft + 50}px`; // NPC car speed
+            if (currentLeft >= trackLength - 75) { // Adjusted to consider the width of the car for a better visual cue
                 clearInterval(npcInterval);
-
+                alert('NPC wins!');
             }
         }, 1000); // Adjust timing to control speed
     }
