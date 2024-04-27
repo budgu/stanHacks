@@ -43,12 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
         npcInterval = setInterval(() => {
             const currentLeft = parseInt(npcCar.style.left, 10);
             npcCar.style.left = `${currentLeft + 10}px`; // NPC car speed
-            if (currentLeft >= trackLength) {
+            if (currentLeft >= trackLength - 20) { // Adjusted to consider the width of the car for a better visual cue
                 clearInterval(npcInterval);
-                alert('NPC wins!');
+                setTimeout(() => {
+                    alert('NPC wins!');
+                }, 500); // 0.5 second delay before showing the message
             }
         }, 1000); // Adjust timing to control speed
     }
+    
 
     let firstCard = null;
     let userProgress = 0;
@@ -77,9 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
         userCar.style.left = `${movePerMatch * userProgress}px`;
         if (userProgress >= totalPairs) {
             clearInterval(npcInterval);
-            alert('You win!');
+            setTimeout(() => {
+                alert('You win!');
+            }, 0.5); // 0.5 second delay before showing the message
         }
     }
+    
 
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
