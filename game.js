@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const setSelector = document.getElementById('setSelector');
     const gameBoard = document.getElementById('gameBoard');
+    const userCar = document.getElementById('userCar');
+    const npcCar = document.getElementById('npcCar');
+    const trackLength = 800; // Adjust this based on your race track size
+    let npcInterval;
 
     // Load flashcard sets from localStorage
     for (let i = 0; i < localStorage.length; i++) {
@@ -14,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setSelector.addEventListener('change', function() {
         const selectedSet = JSON.parse(localStorage.getItem(this.value));
         initializeGameBoard(selectedSet);
+        startNpcCar();
     });
 
     function initializeGameBoard(cards) {
@@ -33,7 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
             gameBoard.appendChild(cardElement);
         });
     }
+
+    function startNpcCar() {
+        npcInterval = setInterval(() => {
+            const currentLeft = parseInt(npcCar.style.left, 10);
+            npcCar.style.left = `${currentLeft + 10}px`; // NPC car speed
+            if (currentLeft >= trackLength) {
+                clearInterval(npcInterval);
+                alert('NPC wins!');
+            }
+        }, 1000); // Adjust timing to control speed
+    }
+
     let firstCard = null;
+    let userProgress = 0;
     function handleCardClick(card, cardElement) {
         if (!firstCard) {
             firstCard = { card, cardElement };
@@ -44,10 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 cardElement.classList.add('matched');
                 firstCard.cardElement.removeEventListener('click', firstCard.cardElement.onclick);
                 cardElement.removeEventListener('click', cardElement.onclick);
+                updateRacePosition();
             } else {
                 firstCard.cardElement.classList.remove('selected');
             }
             firstCard = null;
+        }
+    }
+
+    function updateRacePosition() {
+        const totalPairs = document.querySelectorAll('.card').length / 2;
+        userProgress++;
+        const movePerMatch = trackLength / totalPairs;
+        userCar.style.left = `${movePerMatch * userProgress}px`;
+        if (userProgress >= totalPairs) {
+            clearInterval(npcInterval);
+            alert('You win!');
         }
     }
 
@@ -59,3 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return array;
     }
 });
+
+
+
