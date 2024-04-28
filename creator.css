@@ -7,10 +7,15 @@ html {
 button{
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
-    width: 90px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: white;
+    width: 101px;
+    height: 45px;
+    border-radius: 6px;
+    background-image: url('buttonLong.png');
+    border: none;
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;
+
 }
 
 button:hover{
@@ -18,8 +23,10 @@ button:hover{
 }
 
 #view {
-    width: 100px;
-    height: 60px;
+    width: 101px;
+    height: 64px;
+    background-image: url('buttonWide.png');
+    border: none;
 }
 
 input {

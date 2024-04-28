@@ -7,13 +7,16 @@ html {
 }
 
 button{ 
-    margin: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
-    width: 200px;
-    height: 150px;
-    background-color: white;
-    border-radius: 8px;
+    width: 101px;
+    height: 64px;
+    border-radius: 6px;
+    background-image: url('buttonWide.png');
+    border: none;
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;
 }
 
 button:hover{
